@@ -1,0 +1,78 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+     <script>
+       
+        function clickEmoji(ev) {
+        if (input.selectionStart || input.selectionStart == '0') {
+            var startPos = input.selectionStart;
+            var endPos = input.selectionEnd;
+            input.value = input.value.substring(0, startPos) +
+            ev.currentTarget.innerHTML +
+            input.value.substring(endPos, input.value.length);
+        } else {
+            input.value += ev.currentTarget.innerHTML;
+        }
+
+        // closeEmoji();
+        $input.focus();
+        input.selectionStart = startPos + 2;
+        input.selectionEnd = endPos + 2;
+        }
+     </script>   
+</head>
+<body dir="rtl">
+    {% block content %}
+    <h1>صفحه مدیریت دیتابیس تولدی ها</h1>
+    
+    <li>
+        <h3>در این صفحه امکان بروزرسانی فایل تولدی های نرم افزار وجود دارد</h3>
+    </li>
+    <ul>
+    <li>
+        <h4>دقت داشته باشید که با زدن دکمه بروزرسانی، مرورگر موزیلا باز می شود و وارد حسابرو می شود.
+             در صورتیکه فایل های مربوط به کوکی حسابرو نامعتبر باشند 
+        باید مجدد عملیات لاگین را انجام دهید تا کوکی مجدد ذخیر شود
+        </h4>
+    </li>
+    
+    <li>
+        <h4>جهت اجرای ارسال تولدی ها روی دکمه زیر کلیک نمایید</h4>
+    </li>
+    </ul>
+    <div>
+        <form class="buttons has-addons">
+            {% csrf_token %} 
+            {% if result == "stoped" %}
+                
+                <!-- <input type="text" formmethod="post",name="sms_text",value = "متن دلخواه خود را وارد نمایید"> -->
+                <label for="w3review">متن پیامک را وارد نمایید:</label>
+                <p style="font-size:48px">
+                    <button>&#128512;</button>
+                    <button>&#128516;</button>
+                    <button>&#128525;</button>
+                    <button type="button" onclick="(getElementById('sms_text01').value = getElementById('sms_text01').focus())">&#128151;</button>
+                    
+                       
+                    </p>
+                    
+                <textarea id="sms_text01" name="sms_text" rows="4" cols="50">
+@نام_و_نام_خانوادگی عزیز
+💗تولدت مبارک💗
+20% تخفیف برای شما، تا 10 روز، در تمامی شعب هانی مون
+                </textarea> 
+                <button type="submit" formmethod="post" name="act" value="run">اجرا</button>
+            {% else %}
+                <button type="submit" formmethod="post"  name="act" value="stop">توقف</button>
+            {% endif %}
+        </form>
+    </div>
+    {% endblock %}
+    
+</body>
+</html>

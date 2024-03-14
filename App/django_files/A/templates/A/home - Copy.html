@@ -1,0 +1,24 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+</head>
+<body>
+    {% block content %}
+    items
+    <ul>
+        <li>
+            <a href="{% url 'birthday_app:birthday_page' %}">تولدی ها</a>
+        </li>
+        <li>
+            <a href="{% url 'product_app:product_page' %}">محصولات</a>
+        </li>
+        <li>
+            <a href="{% url 'get_the_report_app:get_report' %}">دریافت فایل از گزارشات حسابرو</a>
+        </li>
+    </ul>
+    {% endblock %}
+    
+</body>
+</html>

@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    
+    
+        
+</head>
+<body dir="rtl">
+    {% block content %}
+        <h1>صفحه بروزرسانی نقطه سفارش محصولات </h1>
+        
+        
+        <li>
+            <h4>جهت اجرای بروزسانی نقطه سفارش محصولات روی دکمه زیر کلیک نمایید</h4>
+        </li>
+        </ul>
+        <form class="buttons has-addons">
+            {% csrf_token %} 
+            {% if result == "stoped" %}
+                <button type="submit" formmethod="post" name="act" value="run">بروزرسانی</button>
+            {% else %}
+                <button type="submit" formmethod="post"  name="act" value="stop">توقف</button>
+            {% endif %}
+        </form>
+    {% endblock %}
+    
+</body>
+</html>

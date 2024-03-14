@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+<html lang="fa">
+<head>
+   
+        
+</head>
+<body dir="rtl">
+    {% block content %}
+    <h1>صفحه گزارشات از فایل های اکسل</h1>
+    <ul>
+        <li>
+            <a href="{% url 'analyse_excels_app:factor_count' %}">ایجاد خروجی تعداد فاکتورها</a>
+        </li>
+        <li>
+            <a href="{% url 'analyse_excels_app:recieve' %}">ایجاد خروجی برای دریافتی از فاکتورها</a>   
+        </li>
+    </ul>
+    
+    {% endblock %}
+    
+</body>
+</html>

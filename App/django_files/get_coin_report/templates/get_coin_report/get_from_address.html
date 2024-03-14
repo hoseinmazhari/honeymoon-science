@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+   
+</head>
+<body dir="rtl">
+    {% block content %}
+    
+    <li>
+        <h3>در این صفحه امکان دریافت دیتای گزارشات سکه ها در حسابرو وجود دارد</h3>
+    </li>
+    <ul>
+    <li>
+        <h4>
+            دقت داشته باشید که با زدن دکمه اجرا، مرورگر موزیلا باز می شود و وارد حسابرو می شود.
+             در صورتیکه فایل های مربوط به کوکی حسابرو نامعتبر باشند 
+        باید مجدد عملیات لاگین را انجام دهید تا کوکی مجدد ذخیر شود
+        </h4>
+    </li>
+    
+    <li>
+        <h4>جهت اجرای دریافت اکسل از گزارش پس از وارد نمودن لینک گزارش دکمه زیر کلیک نمایید</h4>
+    </li>
+    </ul>
+    <div>
+        <form class="buttons has-addons">
+            {% csrf_token %} 
+            {% if result == "stoped" %}
+                
+                <!-- <input type="text" formmethod="post",name="sms_text",value = "متن دلخواه خود را وارد نمایید"> -->
+                <label for="w3review">آدرس گزارش سکه ها در حسابرو را وارد نمایید:</label>
+                
+                    
+                <input dir="ltr" style="width: 50%; font-size: 24px;" id="hesabro_report_link01" name="report_link" type="text" placeholder="https://hesabro.ir/@hm/customer-coin/report"> 
+                <button type="submit" formmethod="post" name="act" value="run">اجرا</button>
+            {% else %}
+                <button type="submit" formmethod="post"  name="act" value="stop">توقف</button>
+            {% endif %}
+            
+            
+            </div>
+            
+        </form>
+    </div>
+    {% endblock %}
+    
+</body>
+</html>

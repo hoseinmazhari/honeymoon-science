@@ -1,0 +1,74 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+   
+</head>
+<body dir="rtl">
+    {% block content %}
+    
+    <li>
+        <h3>در این صفحه امکان دریافت دیتای گزارشات مشتریان حسابرو وجود دارد</h3>
+    </li>
+    <ul>
+    <li>
+        <h4>
+            دقت داشته باشید که با زدن دکمه اجرا، مرورگر موزیلا باز می شود و وارد حسابرو می شود.
+             در صورتیکه فایل های مربوط به کوکی حسابرو نامعتبر باشند 
+        باید مجدد عملیات لاگین را انجام دهید تا کوکی مجدد ذخیر شود
+        </h4>
+    </li>
+    
+    <li>
+        <h4>جهت اجرای دریافت اکسل از گزارش پس از وارد نمودن لینک گزارش دکمه زیر کلیک نمایید</h4>
+    </li>
+    </ul>
+    <div>
+        <form class="buttons has-addons">
+            {% csrf_token %} 
+            {% if result == "stoped" %}
+                
+                <!-- <input type="text" formmethod="post",name="sms_text",value = "متن دلخواه خود را وارد نمایید"> -->
+                <label for="w3review">آدرس گزارش ایجاد شده در حسابرو را وارد نمایید:</label>
+                
+                    
+                <input dir="ltr" style="width: 50%; font-size: 24px;" id="hesabro_report_link01" name="report_link" type="text" placeholder="https://hesabro.ir/@hm/report-customer/view?id=65"> 
+                <button type="submit" formmethod="post" name="act" value="run">اجرا</button>
+            {% else %}
+                <button type="submit" formmethod="post"  name="act" value="stop">توقف</button>
+            {% endif %}
+            
+            <br><br><br><br><br>
+            <div id="div_tj_merger">
+                <h3>فایل تولید شده از مرحله قبل و همچنین فایل فاکتورهای تجمیع شده ی حسابرو و همیار را انتخاب نمایید:</label>
+                
+                <br>
+                <label for="file">انتخاب فایل مرحله قبل:</label>
+                <input type="file" id="file1" name="file1" accept=".xlsx">
+                <br>
+                <label for="file">انتخاب فاکتورها :</label>
+                <input type="file" id="file2" name="file2" accept=".xlsx">
+                <br>
+                <button type="submit" formmethod="post" name="merge_tj_files" value="merge_tj_act">اجرا</button>
+                <button type="submit" formmethod="post" name="merge_tj_files" value="stop_merge_tj_act">توقف</button>
+            </div>
+            <br><br><br><br><br>
+            <div id="div_fr_merger">
+                <h3>فایل تولید شده از مرحله قبل و همچنین فایل فاکتورهای تجمیع شده ی حسابرو و همیار را انتخاب نمایید:</label>
+                
+                <br>
+                <label for="file">انتخاب فایل مرحله قبل:</label>
+                <input type="file" id="file_fr1" name="file_fr1" accept=".xlsx">
+                <br>
+                <label for="file">انتخاب فاکتورها :</label>
+                <input type="file" id="file_fr2" name="file_fr2" accept=".xlsx">
+                <br>
+                <button type="submit" formmethod="post" name="merge_fr_files" value="merge_fr_act">اجرا</button>
+                <button type="submit" formmethod="post" name="merge_fr_files" value="stop_merge_fr_act">توقف</button>
+            </div>
+        </form>
+    </div>
+    {% endblock %}
+    
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+<html lang="fa">
+<head>
+   
+        
+</head>
+<body dir="rtl">
+    {% block content %}
+    <h1>صفحه مدیریت تولدی ها</h1>
+    <ul>
+        <li>
+            <a href="{% url 'birthday_app:update_db' %}">ارسال پیامک و بروزرسانی دیتابیس تولدی های</a>
+            
+        </li>
+
+    </ul>
+    
+    {% endblock %}
+    
+</body>
+</html>

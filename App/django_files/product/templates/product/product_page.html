@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    
+        
+</head>
+<body dir="rtl">
+    {% block content %}
+    <h1>صفحه مدیریت محصولات</h1>
+    <ul>
+        <li>
+            <a href="{% url 'product_app:order_point' %}">بروزرسانی نقطه سفارش محصولات</a>
+            
+        </li>
+
+    </ul>
+    {% endblock %}
+    
+    
+</body>
+</html>
