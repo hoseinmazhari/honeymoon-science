@@ -142,9 +142,25 @@ def task_selector(selected,args_= "",**kwargs):
         # selected = "5"
         main_url = f"{hesabro_domain}/site/index"
         if selected == tsk.task_name.update_birthday:
-            # driver, is_logged_in = run_hesabro()
-            # if is_logged_in:
-            #     dfData = upb.get_birthday_data(driver,main_url,tsk.task_name.update_birthday)
+            driver, is_logged_in = run_hesabro()
+            if is_logged_in:
+                dfData = upb.get_birthday_data(driver,main_url,tsk.task_name.update_birthday)
+                # send_group_sms(dfData,tsk.task_name.update_birthday,args_)
+                try:
+                    birthPath = os.getcwd()
+                    reports = "reports"
+                    os.mkdir(reports)
+                except:
+                    pass
+                os.chdir(f"{birthPath}/{reports}")
+                birthPath = os.getcwd()
+                try:
+                    birthdayDir = "birthday"
+                    os.mkdir(birthdayDir)
+                except:
+                    pass
+                os.chdir(f"{birthPath}/{birthdayDir}")
+                dfData.to_excel(f"birthday in {djtj.getDateTimeForFileName()}.xlsx",index=False)
             # mybrowser = Browser()
             # # mybrowser.change_url(main_url)
             # driver = mybrowser.driver
@@ -173,7 +189,7 @@ def task_selector(selected,args_= "",**kwargs):
             dfData = pd.DataFrame(ls)
             dfData.to_excel("data.xlsx",index=False)
             send_group_sms(dfData,tsk.task_name.update_birthday,args_)
-            time.sleep(60)
+            # time.sleep(60)
             # driver.close()
         elif selected == tsk.task_name.get_report_from_hesabro_link:
             driver, is_logged_in = run_hesabro()
