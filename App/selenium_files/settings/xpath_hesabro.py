@@ -27,7 +27,7 @@ class create_reportcustomer():
     download = '/html/body/div[2]/div/div[2]/div[2]/div/div[1]/div[2]/a'
     class dataReport():
         tbody = '/html/body/div[2]/div/div[2]/div[2]/div/div[2]/div/div/div[2]/div/table/tbody'
-        next_p = '/html/body/div[2]/div/div[2]/div[2]/div/div[2]/div/div/ul/li[8]/a'
+        next_p = '/html/body/div[2]/div/div[2]/div[2]/div/div[2]/div/div/ul/li[7]/a'
                 #  /html/body/div[2]/div/div[2]/div[2]/div/div[2]/div/div/ul/li[8]/span
     # /html/body/div[2]/div/div[2]/div[2]/div/div/div/div[2]/div/table/tbody
    

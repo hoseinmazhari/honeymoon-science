@@ -184,7 +184,7 @@ def task_selector(selected,args_= "",**kwargs):
             this_dict = {
                 mobile:"09139960164",
                 name: "حسین مظهری",
-                birthday:"1380/01/01"}
+                birthday:"1365/06/29"}
             ls.append(this_dict)
             dfData = pd.DataFrame(ls)
             dfData.to_excel("data.xlsx",index=False)

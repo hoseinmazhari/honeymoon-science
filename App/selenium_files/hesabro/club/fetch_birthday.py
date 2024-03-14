@@ -60,7 +60,7 @@ def download_data(driver, title, this_delay):
             #     time.sleep(5)
             #     is_true = False
         data = pd.DataFrame(lsData)
-        data.to_excel(f"{title}.xlsx",index=False)
+        # data.to_excel(f"{title}.xlsx",index=False)
         return data
             # element = WebDriverWait(driver, 10).until(
             #     EC.presence_of_element_located((By.XPATH, xph.create_reportcustomer.download)))
