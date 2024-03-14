@@ -160,10 +160,10 @@ def task_selector(selected,args_= "",**kwargs):
             name = "نام و نام خانوادگی"
             birthday = "تاریخ تولد"
             ls = []
-            this_dict = {
-                mobile:"09136199868",
-                name: "علی خراسانی",
-                birthday:"1380/01/01"}
+            # this_dict = {
+            #     mobile:"09136199868",
+            #     name: "علی خراسانی",
+            #     birthday:"1380/01/01"}
             ls.append(this_dict)
             this_dict = {
                 mobile:"09139960164",
