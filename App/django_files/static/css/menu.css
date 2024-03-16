@@ -1,0 +1,31 @@
+.menu {
+    width: 100%;
+    background-color: #606b6f;
+  }
+  
+  .menu ul {
+    margin: 0;
+    padding: 0;
+    list-style: none;
+    text-align: right; /* تغییر ترتیب منو به راست به چپ */
+  }
+  
+  .menu ul li {
+    display: inline-block;
+  }
+  
+  .menu ul li a {
+    display: block;
+    padding: 10px 20px;
+    text-decoration: none;
+    color: #fff;
+  }
+  
+  .menu ul li a i {
+    margin-left: 5px; /* فاصله بین آیکون و متن */
+  }
+  
+  .menu ul li a:hover {
+    background-color: #718b94;
+  }
+  

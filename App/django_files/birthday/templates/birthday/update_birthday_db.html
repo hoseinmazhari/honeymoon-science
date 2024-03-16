@@ -4,7 +4,11 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    
+    <title>ارسال متن تولدی ها</title>
+    
+    <!-- <link rel="stylesheet" href="style.css"> -->
+    <script src="https://unpkg.com/htmx.org@1.7.0/dist/htmx.js"></script>
     
      <script>
        
@@ -45,33 +49,44 @@
         <h4>جهت اجرای ارسال تولدی ها روی دکمه زیر کلیک نمایید</h4>
     </li>
     </ul>
-    <div>
-        <form class="buttons has-addons">
-            {% csrf_token %} 
-            {% if result == "stoped" %}
-                
-                <!-- <input type="text" formmethod="post",name="sms_text",value = "متن دلخواه خود را وارد نمایید"> -->
-                <label for="w3review">متن پیامک را وارد نمایید:</label>
-                <p style="font-size:48px">
-                    <button>&#128512;</button>
-                    <button>&#128516;</button>
-                    <button>&#128525;</button>
-                    <button type="button" onclick="(getElementById('sms_text01').value = getElementById('sms_text01').focus())">&#128151;</button>
+    <div class="container" hx-boost>
+        <section hx-target="this">
+            <form class="buttons has-addons">
+                {% csrf_token %} 
+                {% if result == "stoped" %}
                     
-                       
-                    </p>
-                    
-                <textarea id="sms_text01" name="sms_text" rows="4" cols="50">
+                    <!-- <input type="text" formmethod="post",name="sms_text",value = "متن دلخواه خود را وارد نمایید"> -->
+                    <label for="w3review">متن پیامک را وارد نمایید:</label>
+                    <p style="font-size:48px">
+                        <button hx-post="/updateTextarea" hx-trigger="click" hx-target="#sms_text">افزودن متن</button>
+                        <button>&#128512;</button>
+                        <button>&#128516;</button>
+                        <button>&#128525;</button>
+                        <button type="button" onclick="(getElementById('sms_text01').value = getElementById('sms_text01').focus())">&#128151;</button>
+                        
+                           
+                        </p>
+                        
+                    <textarea id="sms_text01" name="sms_text" rows="4" cols="50">
 @نام_و_نام_خانوادگی عزیز
 💗تولدت مبارک💗
 20% تخفیف برای شما، تا 10 روز، در تمامی شعب هانی مون
-                </textarea> 
-                <button type="submit" formmethod="post" name="act" value="run">اجرا</button>
-            {% else %}
-                <button type="submit" formmethod="post"  name="act" value="stop">توقف</button>
-            {% endif %}
-        </form>
+                    </textarea> 
+                    <button type="submit" formmethod="post" name="act" value="run">اجرا</button>
+                {% else %}
+                    <button type="submit" formmethod="post"  name="act" value="stop">توقف</button>
+                {% endif %}
+            </form>
+        </section>
+        
+        <aside>
+            <h2>نوار کناری</h2>
+            <p>محتوای نوار کناری.</p>
+        </aside>
     </div>
+
+        
+    
     {% endblock %}
     
 </body>

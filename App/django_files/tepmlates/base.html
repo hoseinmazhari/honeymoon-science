@@ -2,43 +2,49 @@
 <!DOCTYPE html>
 <html lang="en" dir="rtl">
 <head>
+  {% block header %}
+        
+       
     <head>
         <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+       
         
         <title>{% block title %}honeymoon science{% endblock %}</title>
-        <link rel="stylesheet" href="{% static 'css/components.css' %}">
-        <link rel="stylesheet" href="{% static 'css/icons.css' %}">
-        <link rel="stylesheet" href="{% static 'css/responsee.css' %}">
-        <link rel="stylesheet" href="{% static 'owl-carousel/owl.carousel.css' %}">
-        <link rel="stylesheet" href="{% static 'owl-carousel/owl.theme.css' %}">
-        <!-- CUSTOM STYLE -->      
-        <link rel="stylesheet" href="{% static 'css/template-style.css' %}">
-        <link href="{% static 'Iranian Sans.ttf' %}" rel="stylesheet">  
-        <script type="text/javascript" src="{% static 'js/jquery-1.8.3.min.js' %}"></script>
-        <script type="text/javascript" src="{% static 'js/jquery-ui.min.js' %}"></script>   
+        <link rel="stylesheet" href="{% static 'css/style.css' %}">
+        <!-- <link rel="stylesheet" href="{% static 'css/menu.css' %}">
         
+        <link rel="stylesheet" href="{% static 'css/div.css' %}"> -->
      </head>
   
-    
+     {% endblock %}
 </head>
-<body class="size-1520 primary-color-red background-dark">
-    <header class="grid" dir="ltr" >
+<body >
+    <header class="grid" dir="rtl" >
         <!-- Top Navigation -->
-        <nav class="s-12 grid background-none background-primary-hightlight">
+        <nav class="menu" dir="rtl">
            <!-- logo -->
-           <a href="{% url 'home' %}" class="m-12 l-3 padding-2x logo">
-              <img src="{% static 'img/honeymoon.png' %}">
-           </a>
-           <div class="top-nav s-12 l-9" > 
-              <ul class="top-ul right chevron">
+           <div class="container">
+            <div class="centered">
+              <a href="{% url 'home' %}" >
+                <img src="{% static 'img/honeymoon.png' %}">
+             </a>
+              <!-- محتوای دلخواه -->
+            </div>
+          </div>
+           
+           <div  > 
+              <ul >
+                
+                
+                <li><a href="{% url 'home' %}">صفحه اصلی</a></li>
+                <li><a href="{% url 'product_app:product_page' %}">محصولات</a></li>
+                <li><a href="{% url 'birthday_app:birthday_page' %}">تولدی ها</a></li>
+                <li><a href="{% url 'get_the_report_app:get_report' %}">دریافت فایل از گزارشات حسابرو</a></li>
                 <li>
                   <a href="{% url 'get_coin_report_app:get_report' %}">دریافت فایل از گزارشات سکه از حسابرو</a>
                 </li>
-                <li><a href="{% url 'get_the_report_app:get_report' %}">دریافت فایل از گزارشات حسابرو</a></li>
-                <li><a href="{% url 'birthday_app:birthday_page' %}">تولدی ها</a></li>
-                <li><a href="{% url 'product_app:product_page' %}">محصولات</a></li>
-                <li><a href="{% url 'home' %}">صفحه اصلی</a></li>
+                
+                
                 <!-- <li><a href="gallery.html">Gallery</a></li>
                 <li><a href="contact.html">Contact</a></li> -->
               </ul>
