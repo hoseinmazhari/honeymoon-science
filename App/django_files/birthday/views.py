@@ -11,7 +11,19 @@ sys.path.append("..")
 from selenium_files.settings.run_app import run_hesabro
 from selenium_files.settings.run_app import task_selector
 from selenium_files.settings import app_tasks as atk
-
+def timeCheck()->bool:
+    import time
+    thisTime = time.ctime()
+    # print (thisTime)
+    firstColon = thisTime.find(":")
+    # print(firstColon)
+    thisTime = thisTime[firstColon-2:firstColon+6]
+    # print(thisTime)
+    if thisTime>"10:00:00" and thisTime< "11:00:00":
+        
+        return True
+    else:
+        return False
 # from selenim_files.hesabro.datpaa.user_
 # from selenium.
 # os.path.abspath(os.path.join(os.getcwd(), '...'))
@@ -27,7 +39,8 @@ def update_db(request):
         sms_text = data.get("sms_text")
         if action == "run":
             # driver = webdriver.Firefox()
-            task_selector(atk.task_name.update_birthday,sms_text)
+            if timeCheck():
+                task_selector(atk.task_name.update_birthday,sms_text)
         # driver.get('http://aradpayamak.net')
             # driver.get("https://honeymoonatr.com")
                 # for t in driver.title:
