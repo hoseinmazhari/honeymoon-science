@@ -24,6 +24,7 @@ urlpatterns = [
     path('@product/',include('product.urls'),name='product'),
     path('@get_report/',include('get_the_report.urls'),name='get_the_report'),
     path('@get_coin_report/',include('get_coin_report.urls'),name='get_coin_report'),
+    path('@honeymoonatr/',include('honeymoonatr.urls'),name='honeymoonatr'),
     # path('@analyse_excels/',include('analyse_excels.urls'),name='analyse_excels'),
     path('',views.home,name = 'home'),
 ]

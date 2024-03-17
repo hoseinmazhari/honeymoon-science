@@ -6,7 +6,7 @@ import time
 from .xpath import get_xpath
 import pandas as pd
 # import app_address
-from .app_address import hesabro_domain,get_rnd_page,urls,arad_payamek_domain
+from .app_address import hesabro_domain,get_rnd_page,urls,arad_payamek_domain,honeymoonatr_domain
 import random
 from . import DateJuToJa as djtj
 from .user_pass import get_index_user_pass
@@ -20,6 +20,7 @@ from ..hesabro.club import fetch_coin_report_data as fcrd
 from ..hesabro.club.sms_sender import send_group_sms
 def get_user_pass(this_domain):
     df_user_pass = pd.read_excel("..//selenium_files/data/user_pass/user_pass.xlsx")
+    df_user_pass.to_excel("test.xlsx", index=False)
     df_data = df_user_pass.loc[df_user_pass['domain']==this_domain]
     # if len(df_hesabro)
     this_index = get_index_user_pass(df_data)
@@ -128,9 +129,74 @@ def run_hesabro():
             waiter = input("press any key and enter: ")
             Browser.save_cookies(mybrowser,cookies_file_name)
             is_logged_in = True
+        
         except:
             is_logged_in = False
     return driver , is_logged_in
+
+def run_honeymoonatr():
+    # sys.path.append("..")
+    # for i in range(1000):
+        # print(os.getcwd())
+        # print(app_tasks.tasks.update_birthday)
+    return False
+    main_url= f"{honeymoonatr_domain}/di-admin"
+    username,password = get_user_pass(honeymoonatr_domain)
+    thisTime = djtj.getDateTimeForFileName()
+
+    is_logged_in = False
+    mybrowser = Browser()
+    mybrowser.change_url(main_url)
+    driver = mybrowser.driver
+    return True
+    # number = driver.find_element(by="id",value='loginform-number')
+    files = os.listdir()
+    file_exist = False
+    cookies_file_name = f'cookies_hesabro_{username}'
+    for f in files:
+        # print(f)
+        if f'{cookies_file_name}.pkl'== f:
+            file_exist = True
+            break
+    # logged_in = True
+    if file_exist:
+        mybrowser.rem_cookies()
+        mybrowser.load_cookies(f'{cookies_file_name}')
+        time.sleep(4)
+        if mybrowser.driver.current_url == main_url:
+            is_logged_in = True
+        else:
+            driver.get(main_url)
+            os.remove(f'{cookies_file_name}.pkl') 
+            time.sleep(5)
+                
+    if is_logged_in == False:
+        # login_hesabro(driver)
+        driver.get(main_url)
+        _number = driver.find_element(by="xpath",value=f"{get_xpath('login','number')}")
+        
+        write_in_element(username,_number)
+        _number.send_keys(Keys.ENTER)
+
+        _password = driver.find_element(by="xpath",value=f"{get_xpath('login','password')}")
+        write_in_element(password,_password)
+        
+        _authenticator = driver.find_element(by="xpath",value=get_xpath('login','authenticator'))
+        _authenticator.click()
+        time.sleep(15)
+        _authenticator.send_keys(Keys.ENTER)
+        time.sleep(7)
+        try:
+            # _test = _coin = driver.find_element(by="xpath",value=get_xpath('user_detail','coin'))
+            print('this message show for wait to logged in after login continue')
+            waiter = input("press any key and enter: ")
+            Browser.save_cookies(mybrowser,cookies_file_name)
+            is_logged_in = True
+        except:
+            is_logged_in = False
+    return driver , is_logged_in
+
+
 def task_selector(selected,args_= "",**kwargs):
         # print("type:")
         # print("1 : for charge setter!")
@@ -141,7 +207,12 @@ def task_selector(selected,args_= "",**kwargs):
         # selected = input("please type and then enter num of your choice: ")
         # selected = "5"
         main_url = f"{hesabro_domain}/site/index"
-        if selected == tsk.task_name.update_birthday:
+        print(selected)
+        if selected == tsk.task_name.run_honeymoonatr:
+            # print("seledted is ok")
+            run_honeymoonatr()
+            pass
+        elif selected == tsk.task_name.update_birthday:
             driver, is_logged_in = run_hesabro()
             if is_logged_in:
                 dfData = upb.get_birthday_data(driver,main_url,tsk.task_name.update_birthday)

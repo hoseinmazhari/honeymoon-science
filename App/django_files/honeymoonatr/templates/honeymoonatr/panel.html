@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+{% extends 'base.html' %}
+<html lang="fa">
+<head>
+   
+        
+</head>
+<body dir="rtl">
+    {% block content %}
+    <h1>صفحه مدیریت سایت هانی مون</h1>
+        <form action="">
+                {% csrf_token %} 
+                   
+                <button type="submit" formmethod="post" name="act" value="run">اجرا</button>
+                
+            </form>
+        
+        
+        
+
+
+        
+    
+    
+    
+    {% endblock %}
+    
+</body>
+</html>

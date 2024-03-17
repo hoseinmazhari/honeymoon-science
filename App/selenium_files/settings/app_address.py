@@ -1,6 +1,7 @@
 hesabro_domain = "https://hesabro.ir/@hm"
 # from main import hesabro_domain
 # 
+honeymoonatr_domain = "https://honeymoonatr.com"
 arad_payamek_domain = "http://aradpayamak.net"
 class urls_arad():
     class phone_book():

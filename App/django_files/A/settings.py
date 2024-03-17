@@ -39,10 +39,12 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'birthday',
     'A',
+    'honeymoonatr',
     'product',
     'get_the_report',
     'get_coin_report',
     'analyse_excels',
+    
 ]
 
 MIDDLEWARE = [
@@ -60,7 +62,7 @@ ROOT_URLCONF = 'A.urls'
 TEMPLATES = [
     {
         'BACKEND': 'django.template.backends.django.DjangoTemplates',
-        'DIRS': [f"{BASE_DIR}/tepmlates",'A','product','birthday','get_coin_report'],
+        'DIRS': [f"{BASE_DIR}/tepmlates",'A','product','birthday','get_coin_report','honeymoonatr'],
         'APP_DIRS': True,
         'OPTIONS': {
             'context_processors': [
