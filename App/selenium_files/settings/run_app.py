@@ -145,7 +145,7 @@ def task_selector(selected,args_= "",**kwargs):
             driver, is_logged_in = run_hesabro()
             if is_logged_in:
                 dfData = upb.get_birthday_data(driver,main_url,tsk.task_name.update_birthday)
-                # send_group_sms(dfData,tsk.task_name.update_birthday,args_)
+                send_group_sms(dfData,tsk.task_name.update_birthday,args_)
                 try:
                     birthPath = os.getcwd()
                     reports = "reports"
@@ -180,12 +180,9 @@ def task_selector(selected,args_= "",**kwargs):
             #     mobile:"09136199868",
             #     name: "علی خراسانی",
             #     birthday:"1380/01/01"}
-            ls.append(this_dict)
-            this_dict = {
-                mobile:"09139960164",
-                name: "حسین مظهری",
-                birthday:"1365/06/29"}
-            ls.append(this_dict)
+            # ls.append(this_dict)
+            # this_dict = 
+            ls.append({mobile:"09139960164", name: "حسین مظهری", birthday:"1365/06/29"})
             dfData = pd.DataFrame(ls)
             dfData.to_excel("data.xlsx",index=False)
             send_group_sms(dfData,tsk.task_name.update_birthday,args_)
