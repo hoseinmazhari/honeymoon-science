@@ -139,37 +139,65 @@ def run_honeymoonatr():
     # for i in range(1000):
         # print(os.getcwd())
         # print(app_tasks.tasks.update_birthday)
-    return False
-    main_url= f"{honeymoonatr_domain}/di-admin"
-    username,password = get_user_pass(honeymoonatr_domain)
-    thisTime = djtj.getDateTimeForFileName()
+    # return False
+    main_url= f"{honeymoonatr_domain}" #/di-admin"
+    # username,password = get_user_pass(honeymoonatr_domain)
+    # thisTime = djtj.getDateTimeForFileName()
 
     is_logged_in = False
     mybrowser = Browser()
-    mybrowser.change_url(main_url)
+    mybrowser.rem_cookies()
+    print("start load cookies")
+    mybrowser.load_cookies(f'{"honeymoonatr_cookies"}')
+        
+    # mybrowser.change_url(main_url)
     driver = mybrowser.driver
-    return True
+    print("load main_url")
+    driver.get(main_url)
+    # for i in range(90):
+    #         print(f"{i}","\r")
+    #         time.sleep(1)
+    # # print("load main_url is complete0")
+    # driver.get("https://honeymoonatr.com/wp-admin/edit.php?post_type=product")
+    # waiter = input("press any key and enter: ")
+    # Browser.save_cookies(mybrowser,"honeymoonatr_cookies")
+    
+    
+    
+    
+    
+    # return True
     # number = driver.find_element(by="id",value='loginform-number')
-    files = os.listdir()
-    file_exist = False
-    cookies_file_name = f'cookies_hesabro_{username}'
-    for f in files:
-        # print(f)
-        if f'{cookies_file_name}.pkl'== f:
-            file_exist = True
-            break
-    # logged_in = True
-    if file_exist:
-        mybrowser.rem_cookies()
-        mybrowser.load_cookies(f'{cookies_file_name}')
-        time.sleep(4)
-        if mybrowser.driver.current_url == main_url:
-            is_logged_in = True
-        else:
-            driver.get(main_url)
-            os.remove(f'{cookies_file_name}.pkl') 
-            time.sleep(5)
-                
+    # thisPath = os.getcwd()
+    # os.chdir(f"{thisPath}/cookies")
+    # files = os.listdir()
+    # print(files)
+    # print(os.getcwd())
+    # # file_exist = False
+    # cookies_file_name = f'cookies'
+    # cookie = {"name": "PHPSESSID", 
+    #            "value":"e20a5d206e0f148c0e8936fa5665898b"}
+    # driver.add_cookie(cookie)
+    # for f in files:
+    #     # print(f)
+    #     if f'{cookies_file_name}.pkl'== f:
+    #         file_exist = True
+    #         break
+    # # logged_in = True
+    # if file_exist:
+    # if True:
+        # mybrowser.rem_cookies()
+        # print("start load cookies")
+        # mybrowser.load_cookies(f'{cookies_file_name}')
+        
+        # # time.sleep(120)
+        # if mybrowser.driver.current_url == main_url:
+        #     is_logged_in = True
+        # else:
+            # driver.get(main_url)
+            # os.remove(f'{cookies_file_name}.pkl') 
+            # time.sleep(5)
+    return False        
     if is_logged_in == False:
         # login_hesabro(driver)
         driver.get(main_url)
@@ -211,7 +239,7 @@ def task_selector(selected,args_= "",**kwargs):
         if selected == tsk.task_name.run_honeymoonatr:
             # print("seledted is ok")
             run_honeymoonatr()
-            pass
+            # pass
         elif selected == tsk.task_name.update_birthday:
             driver, is_logged_in = run_hesabro()
             if is_logged_in:

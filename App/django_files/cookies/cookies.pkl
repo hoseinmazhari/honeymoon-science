@@ -1,0 +1,32 @@
+# Netscape HTTP Cookie File
+
+addons.mozilla.org	FALSE	/	TRUE	0	taarId	d2984da9ddceb1c0cfa5b1b20afbe6267454ec1a52e0dc1efc9e5f00b30b2b11
+.mozilla.org	TRUE	/	FALSE	1773864037	_ga	GA1.2.1755292927.1710792037
+.mozilla.org	TRUE	/	FALSE	1710878437	_gid	GA1.2.82012678.1710792038
+.mozilla.org	TRUE	/	FALSE	1710792097	_gat	1
+.mozilla.org	TRUE	/	FALSE	1773864041	_ga_B9CY1C9VBC	GS1.1.1710792036.1.0.1710792041.0.0.0
+.google.com	TRUE	/	TRUE	1726343994	AEC	Ae3NU9OlfUb3V-v_rWgqV6nSNFcDkfzVX8fRZnR1-SPFnmNRH4R97Qo8-Q
+.google.com	TRUE	/	TRUE	1744978692	__Secure-ENID	18.SE=VMrYxxEjqi9Q9YgKL_Huv-Scglzqy-I9XO_A1-I5sc34o4QvDszAJt9DVPO44-Jfkr0AABaLAHD_2ZtbcDtP7wo_92q2lzK0kDt9Cb62aiqzNUVsxKZC5AiJuRP2XnAUJ_odUdBwI1LNfcGYJytX-Zce9vDsR5qQ9R10zZ2j9QU
+.google.com	TRUE	/verify	TRUE	1726603195	SNID	AOYECSosSbiJU4TTMwELQ_GVhRGtDPdMu2D3t7BNhrCwZ6N-2h3axeeS3vh1-BeRAInQp-AvH1t_LXH2D9_rW2TlVm7dXfaNHrE
+.chromewebstore.google.com	TRUE	/	FALSE	1773864014	_ga	GA1.1.160157314.1710792014
+.chromewebstore.google.com	TRUE	/	FALSE	1773864014	_ga_KHZNC1Q6K0	GS1.1.1710792014.1.0.1710792014.0.0.0
+chromewebstore.google.com	FALSE	/	TRUE	1713384015	OTZ	7474800_42_42_114990_38_379890
+.google.com	TRUE	/	TRUE	1726603228	NID	512=FDELjnSoLknUMYvG3rMH_nTjLirGP-Qr7rbiT6mTBbBOSiniRmDH4NK9jjlp7jU6FL5Rb6jzWJOGuTiupGmZxwYdI74rwH7uqtpQqCAnEzNOvl0zbdKMydYNlNyQysaHl8EUwklZtqcdjPf6VKyUcIdl1YqbuM-w5eB4zZaKO8qv3k2WY8MJD-p4IednouVl8oPNlnUs1P4
+.google.com	TRUE	/	TRUE	1713384030	1P_JAR	2024-03-18-20
+www.google.com	FALSE	/	FALSE	1710792630	DV	E0LnWlej09oUMLoqspk1c5GHHGsy5Rg
+.google.com	TRUE	/	TRUE	1773864031	ANID	AHWqTUnRaSzcnEjO2WMI2w9tBu4lqK6cUgY1AQ5mktZHVHG9oY42LrxSEvIqrYxL
+127.0.0.1	FALSE	/	FALSE	1742241420	csrftoken	X2OPS6vZ07oDOb5asI3faEsaQIQnSjJl
+honeymoonatr.com	FALSE	/wp-content/plugins	TRUE	1712012667	wordpress_sec_5d1f7d8bac98a9c60a1052f1dc3e21a9	JavadPA%7C1711969466%7Cyqey04332Bhf1Xp5S9PAtza7KZz7adj9KO0fm6D1rQc%7Cc3e37848409cadeddb6fac2e6ec53bbe6a075f90ef469582248815402e14b780
+honeymoonatr.com	FALSE	/wp-admin	TRUE	1712012667	wordpress_sec_5d1f7d8bac98a9c60a1052f1dc3e21a9	JavadPA%7C1711969466%7Cyqey04332Bhf1Xp5S9PAtza7KZz7adj9KO0fm6D1rQc%7Cc3e37848409cadeddb6fac2e6ec53bbe6a075f90ef469582248815402e14b780
+honeymoonatr.com	FALSE	/	TRUE	1712012667	wordpress_logged_in_5d1f7d8bac98a9c60a1052f1dc3e21a9	JavadPA%7C1711969466%7Cyqey04332Bhf1Xp5S9PAtza7KZz7adj9KO0fm6D1rQc%7Cb4b76ee80c09da28c5f6e9237caa10d164fe0a475a7b4d7772ae29e63c3deed3
+honeymoonatr.com	FALSE	/	TRUE	1710932669	wp_woocommerce_session_5d1f7d8bac98a9c60a1052f1dc3e21a9	67%7C%7C1710932668%7C%7C1710929068%7C%7C54b06f0f7451dd79fab46aa1152cd02d
+honeymoonatr.com	FALSE	/	TRUE	0	PHPSESSID	e20a5d206e0f148c0e8936fa5665898b
+honeymoonatr.com	FALSE	/	FALSE	0	woocommerce_items_in_cart	1
+honeymoonatr.com	FALSE	/	FALSE	0	woocommerce_cart_hash	780e37360282667da16adad331ad5cb1
+.honeymoonatr.com	TRUE	/	FALSE	0	sbjs_migrations	1418474375998%3D1
+.honeymoonatr.com	TRUE	/	FALSE	0	sbjs_current_add	fd%3D2024-03-18%2019%3A29%3A28%7C%7C%7Cep%3Dhttps%3A%2F%2Fhoneymoonatr.com%2F%7C%7C%7Crf%3D%28none%29
+.honeymoonatr.com	TRUE	/	FALSE	0	sbjs_first_add	fd%3D2024-03-18%2019%3A29%3A28%7C%7C%7Cep%3Dhttps%3A%2F%2Fhoneymoonatr.com%2F%7C%7C%7Crf%3D%28none%29
+.honeymoonatr.com	TRUE	/	FALSE	0	sbjs_current	typ%3Dtypein%7C%7C%7Csrc%3D%28direct%29%7C%7C%7Cmdm%3D%28none%29%7C%7C%7Ccmp%3D%28none%29%7C%7C%7Ccnt%3D%28none%29%7C%7C%7Ctrm%3D%28none%29%7C%7C%7Cid%3D%28none%29
+.honeymoonatr.com	TRUE	/	FALSE	0	sbjs_first	typ%3Dtypein%7C%7C%7Csrc%3D%28direct%29%7C%7C%7Cmdm%3D%28none%29%7C%7C%7Ccmp%3D%28none%29%7C%7C%7Ccnt%3D%28none%29%7C%7C%7Ctrm%3D%28none%29%7C%7C%7Cid%3D%28none%29
+.honeymoonatr.com	TRUE	/	FALSE	0	sbjs_udata	vst%3D1%7C%7C%7Cuip%3D%28none%29%7C%7C%7Cuag%3DMozilla%2F5.0%20%28Windows%20NT%2010.0%3B%20Win64%3B%20x64%3B%20rv%3A123.0%29%20Gecko%2F20100101%20Firefox%2F123.0
+.honeymoonatr.com	TRUE	/	FALSE	1710793768	sbjs_session	pgs%3D1%7C%7C%7Ccpg%3Dhttps%3A%2F%2Fhoneymoonatr.com%2F

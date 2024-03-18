@@ -24,7 +24,9 @@ class Browser:
         # except:
         #     return False
     def load_cookies(self,username):
+        # print("load cookies")
         cookies = pickle.load(open(f'{username}.pkl','rb'))
+        # print("this is true")
         # for item in cookies.split(';'):
         #     name,value = item.split('=', 1)
         #     name=name.replace(' ', '').replace('\r', '').replace('\n', '')
