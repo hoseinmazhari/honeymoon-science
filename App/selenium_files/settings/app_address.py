@@ -3,6 +3,8 @@ hesabro_domain = "https://hesabro.ir/@hm"
 # 
 honeymoonatr_domain = "https://honeymoonatr.com"
 arad_payamek_domain = "http://aradpayamak.net"
+class file_locations():
+    cookies = "cookies"
 class urls_arad():
     class phone_book():
         contact_groups = "http://aradpayamak.net/APPs/SMS/?cmp=PhoneBook&st=PhoneBookCategory"

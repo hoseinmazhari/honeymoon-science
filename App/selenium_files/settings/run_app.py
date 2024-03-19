@@ -10,7 +10,8 @@ from .app_address import hesabro_domain,get_rnd_page,urls,arad_payamek_domain,ho
 import random
 from . import DateJuToJa as djtj
 from .user_pass import get_index_user_pass
-
+from . import xpath
+from . import app_address
 from ..hesabro.merchandise.order_points import set_order_point
 from ..hesabro.merchandise.order_points_allBrs import set_order_point_allBrs
 from . import app_tasks as tsk
@@ -37,8 +38,7 @@ def get_user_pass(this_domain):
     else:
         password = ""
     return username,password
-from . import xpath
-from . import app_address
+
 def run_arad_payamek(driver):
     driver.get(arad_payamek_domain)
     username,password = get_user_pass(arad_payamek_domain)
@@ -135,38 +135,105 @@ def run_hesabro():
     return driver , is_logged_in
 
 def run_honeymoonatr():
-    # sys.path.append("..")
-    # for i in range(1000):
-        # print(os.getcwd())
-        # print(app_tasks.tasks.update_birthday)
-    # return False
-    main_url= f"{honeymoonatr_domain}" #/di-admin"
+    print("now set data to variables")
+    print_delay = .4
+    time.sleep(print_delay)
+    main_url= f"{honeymoonatr_domain}" 
+    cookie_fileName = "honeymoonatr_cookies"
+    time.sleep(print_delay)
+    cookies_path = app_address.file_locations.cookies
+    print("set data to variables is complete!")
+    time.sleep(print_delay)
+    print("start run mozilla bot")
+    time.sleep(print_delay)
+    mybrowser = Browser()
+    driver = mybrowser.driver
+    print(f"start load site {honeymoonatr_domain}")
+    time.sleep(print_delay)
+    driver.get(main_url)
+    print(f"site {honeymoonatr_domain} is now loaded!")
+    time.sleep(print_delay)
+    print(f"now we start check existing saved cookies")
+    time.sleep(print_delay)
+    thisPath = os.getcwd()
+    os.chdir(f"{thisPath}/{cookies_path}")
+    print("change url to cookies path")
+    time.sleep(print_delay)
+    ls_files = os.listdir()
+    print("change app url is performed")
+    time.sleep(print_delay)
+    print(f"check cookie file for {honeymoonatr_domain} ")
+    time.sleep(print_delay)
+    print("file list is:")
+    time.sleep(print_delay)
+    for f in ls_files:
+        print(f)
+        time.sleep(print_delay)
+        if f == f"{cookie_fileName}.pkl":
+            print(f"cookie for {honeymoonatr_domain} is now avalible!")
+            time.sleep(print_delay)
+            
+            print("first remove cookeis in browser")
+            time.sleep(print_delay)
+            mybrowser.rem_cookies()
+            print("remove cookeis on browser is completed")
+            time.sleep(print_delay)
+            print("now start loading cookie to your browser")
+            time.sleep(print_delay)
+            for i in range(10, -1):
+                print(i, end="\r")
+                time.sleep(print_delay)
+            
+            mybrowser.load_cookies(f'{cookie_fileName}')
+            
+            print(f"cookie file for {honeymoonatr_domain} is successfully loaded!")
+            time.sleep(print_delay)
+            print("now exit check cookies files")
+            time.sleep(print_delay)
+            break
+    # time.sleep(20)
+    
+    
+    # for i in range(1, 6):
+    #     print(i, end="\r")
+    #     time.sleep(1)
+    
+        
+    #/di-admin"
     # username,password = get_user_pass(honeymoonatr_domain)
     # thisTime = djtj.getDateTimeForFileName()
 
-    is_logged_in = False
-    mybrowser = Browser()
-    mybrowser.rem_cookies()
-    print("start load cookies")
-    mybrowser.load_cookies(f'{"honeymoonatr_cookies"}')
-        
+    # is_logged_in = False
+    
     # mybrowser.change_url(main_url)
-    driver = mybrowser.driver
-    print("load main_url")
-    driver.get(main_url)
-    # for i in range(90):
-    #         print(f"{i}","\r")
-    #         time.sleep(1)
-    # # print("load main_url is complete0")
-    # driver.get("https://honeymoonatr.com/wp-admin/edit.php?post_type=product")
-    # waiter = input("press any key and enter: ")
-    # Browser.save_cookies(mybrowser,"honeymoonatr_cookies")
+    
+    # print("load main_url")
+    # driver.get(main_url)
+    return False
+    for i in range(30):
+            print(i, end="\r")
+            time.sleep(1)
+    # print("load main_url is complete0")
+    
+    waiter = input("press any key and enter: ")
+    is_true = False
+    while is_true ==False:
+        try:
+            Browser.save_cookies(mybrowser,"honeymoonatr_cookies")
+            time.sleep(3)
+            is_true =True
+        except:
+            pass
+    print("cookies is saved please wait...")
+    for i in range(30):
+            print(i, end="\r")
+            time.sleep(1)
+    driver.get("https://honeymoonatr.com/wp-admin/edit.php?post_type=product")
     
     
     
     
-    
-    # return True
+    return True
     # number = driver.find_element(by="id",value='loginform-number')
     # thisPath = os.getcwd()
     # os.chdir(f"{thisPath}/cookies")
