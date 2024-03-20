@@ -1,3 +1,4 @@
+
 from . import printProgress as prgs
 import os,sys
 from .browser import Browser,write_in_element
@@ -19,6 +20,7 @@ from ..hesabro.club import fetch_birthday as upb
 from ..hesabro.club import fetch_report_data as frd
 from ..hesabro.club import fetch_coin_report_data as fcrd
 from ..hesabro.club.sms_sender import send_group_sms
+from ..honeymoonatr import update_products as upsh
 def get_user_pass(this_domain):
     df_user_pass = pd.read_excel("..//selenium_files/data/user_pass/user_pass.xlsx")
     df_user_pass.to_excel("test.xlsx", index=False)
@@ -166,9 +168,10 @@ def run_honeymoonatr():
     time.sleep(print_delay)
     print("file list is:")
     time.sleep(print_delay)
+    is_logged_in = False
     for f in ls_files:
-        print(f)
-        time.sleep(print_delay)
+        # print(f)
+        # time.sleep(print_delay)
         if f == f"{cookie_fileName}.pkl":
             print(f"cookie for {honeymoonatr_domain} is now avalible!")
             time.sleep(print_delay)
@@ -190,7 +193,9 @@ def run_honeymoonatr():
             time.sleep(print_delay)
             print("now exit check cookies files")
             time.sleep(print_delay)
+            is_logged_in = True
             break
+    return driver, is_logged_in 
     # time.sleep(20)
     
     
@@ -305,8 +310,11 @@ def task_selector(selected,args_= "",**kwargs):
         print(selected)
         if selected == tsk.task_name.run_honeymoonatr:
             # print("seledted is ok")
-            run_honeymoonatr()
-            # pass
+            driver, is_logged_in =run_honeymoonatr()
+            if is_logged_in:
+                
+                upsh.start_update(driver)
+                
         elif selected == tsk.task_name.update_birthday:
             driver, is_logged_in = run_hesabro()
             if is_logged_in:

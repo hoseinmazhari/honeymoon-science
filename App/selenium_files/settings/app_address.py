@@ -5,6 +5,12 @@ honeymoonatr_domain = "https://honeymoonatr.com"
 arad_payamek_domain = "http://aradpayamak.net"
 class file_locations():
     cookies = "cookies"
+class urls_honeymoonatr():
+    class products():
+        all_products = "https://honeymoonatr.com/wp-admin/edit.php?post_type=product"
+        step_one_product = "https://honeymoonatr.com/wp-admin/post.php?post="
+        step_tow_product = "&action=edit"
+        next_page = "https://honeymoonatr.com/wp-admin/edit.php?post_type=product&paged="
 class urls_arad():
     class phone_book():
         contact_groups = "http://aradpayamak.net/APPs/SMS/?cmp=PhoneBook&st=PhoneBookCategory"
