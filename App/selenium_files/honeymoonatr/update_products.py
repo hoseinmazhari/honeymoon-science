@@ -45,7 +45,7 @@ def page_progress(driver):
                 EC.presence_of_element_located((By.XPATH, xph.product_details.name)))
         
         input_text = element.get_attribute("value")
-        ls_page.append({"id":this_id, "name":{input_text}})
+        ls_page.append({"id":this_id, "name":input_text})
         # element = WebDriverWait(driver, 10).until(
         #         EC.presence_of_element_located((By.XPATH, xph.product_details.update)))
         
@@ -94,10 +94,12 @@ def start_update(driver):
     page_number = 1
     next_p_isTrue, page_number = next_page(driver,page_number)
     while (next_p_isTrue):
+        print(os.getcwd())
         ls_data.append(page_progress(driver))
         next_p_isTrue, page_number = next_page(driver,page_number)
-    df = pd.DataFrame(ls_data)
-    df.to_excel("products")
+        df = pd.DataFrame(ls_data)
+        print(os.getcwd())
+        df.to_excel("products.xlsx",index= False)
     # body = driver.find_element(By.XPATH,'//*[@id="wpbody-content"]')
     # for i in range(3):
     #     body.send_keys(Keys.DOWN) 
