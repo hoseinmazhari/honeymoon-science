@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+   
+</head>
+<body dir="rtl">
+    {% block content %}
+    
+    
+        <h3>ادغام فایل های همیار و حسابرو</h3>
+    
+    <ul>
+    <li>
+        <h4>
+            جهت ادغام فایل های همیار و حسابرو باید فایل های همیار و حسابرو را در قسمت های مربوط انتخاب نمایید. سپس روی گزینه ادغام کلیک نمایید
+        </h4>
+    </li>
+    
+    
+    </ul>
+    <div>
+        <form >
+            {% csrf_token %} 
+                <!-- <input type="text" formmethod="post",name="sms_text",value = "متن دلخواه خود را وارد نمایید"> -->
+                <label >آدرس فایل یا فایل های فاکتورهای حسابرو را وارد نمایید:</label>
+                <br>
+                <label for="file">انتخاب فایل فاکتورهای همیار:</label>
+                <input type="file" id="file1" name="file1" accept=".xlsx">
+                <br>
+                <label for="file">انتخاب فایل فاکتورهای حسابرو:</label>
+                <input type="file" id="file2" name="file2" accept=".xlsx">
+                <br>
+            {% if result == "stoped_baseMerge" %}  
+                <button type="submit" formmethod="post" name="act" value="run">ادغام</button>
+            {% else %}
+                <button type="submit" formmethod="post"  name="act" value="stoped_baseMerge">توقف</button>
+            {% endif %}
+            
+   
+        </form>
+    </div>
+    {% endblock %}
+    
+</body>
+</html>

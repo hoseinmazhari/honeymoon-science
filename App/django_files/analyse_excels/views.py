@@ -42,3 +42,33 @@ def factors_count(request):
 def analyse_list(request):
     # 
     return render(request,'analyse_excels/analyse_list.html')
+def merge_base_factors(request):
+    result = {"result":"stoped_baseMerge"}
+    print(result,1)
+    if request.method == 'POST':
+        print(result,"post")
+        data = request.POST
+        action = data.get("act")
+        # sms_text = data.get("sms_text")
+        if action == "run":
+            result = {"result":"running"}
+            print(result)
+            # driver = webdriver.Firefox()
+            # task_selector(atk.task_name.update_birthday,sms_text)
+            print("run")
+        # driver.get('http://aradpayamak.net')
+            # driver.get("https://honeymoonatr.com")
+                # for t in driver.title:
+            # result = {"result":(f"عنوان سایت بارگزاری شده: {driver.title}") }
+        else:
+            print("stop")
+            # driver.close()
+        
+        # return redirect(("arad/"))
+    # message ={"messages":"test"}
+    
+    return render(request,"analyse_excels/merge_factors_hamyar_hesabro.html",result)
+    
+
+def merge_factors_customers(request):
+    return HttpResponse("merge_factors_customers")
