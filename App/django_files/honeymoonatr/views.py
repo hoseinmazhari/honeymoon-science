@@ -8,10 +8,10 @@ def honeymoonatr_panel(request):
     if request.method == 'POST':
         data = request.POST
         action = data.get("act")
-        print(action)
+        # print(action)
         if action == "run":
             # driver = webdriver.Firefox()
-                print("run is ok")
+                # print("run is ok")
                 task_selector(atk.task_name.run_honeymoonatr)
         # driver.get('http://aradpayamak.net')
             # driver.get("https://honeymoonatr.com")

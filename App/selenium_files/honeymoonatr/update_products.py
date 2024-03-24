@@ -46,6 +46,8 @@ def page_progress(driver):
         
         input_text = element.get_attribute("value")
         ls_page.append({"id":this_id, "name":input_text})
+        # df= pd.DataFrame(ls_page)
+        # df.to_excel("step1.xlsx",index=False)
         # element = WebDriverWait(driver, 10).until(
         #         EC.presence_of_element_located((By.XPATH, xph.product_details.update)))
         
@@ -54,7 +56,7 @@ def page_progress(driver):
         driver.close()
         driver.switch_to.window(driver.window_handles[0])
         time.sleep(5)
-    return ls_page
+    return pd.DataFrame(ls_page)
 def next_page(driver, page_number):
     # is_true = True
     
@@ -83,6 +85,7 @@ def next_page(driver, page_number):
 def start_update(driver):
     # mybrowser = Browser()
     # driver = mybrowser.driver
+    thisPath = os.getcwd()
     all_products = app_address.urls_honeymoonatr.products.all_products
     driver.get(all_products)
     time.sleep(3)
@@ -97,9 +100,12 @@ def start_update(driver):
         print(os.getcwd())
         ls_data.append(page_progress(driver))
         next_p_isTrue, page_number = next_page(driver,page_number)
-        df = pd.DataFrame(ls_data)
-        print(os.getcwd())
-        df.to_excel("products.xlsx",index= False)
+        # df = pd.DataFrame(ls_data)
+        # print(os.getcwd())
+        # df.to_excel("products.xlsx",index= False)
+    df = pd.concat(ls_data)
+    df.to_excel("finalProductInHoneymoonatr.xlsx", index = False)
+    driver.close()
     # body = driver.find_element(By.XPATH,'//*[@id="wpbody-content"]')
     # for i in range(3):
     #     body.send_keys(Keys.DOWN) 

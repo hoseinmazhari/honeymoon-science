@@ -195,6 +195,7 @@ def run_honeymoonatr():
             time.sleep(print_delay)
             is_logged_in = True
             break
+    os.chdir(thisPath)
     return driver, is_logged_in 
     # time.sleep(20)
     
