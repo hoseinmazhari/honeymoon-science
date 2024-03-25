@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+<!DOCTYPE html>
+<html lang="fa">
+<head>
+   
+</head>
+<body dir="rtl">
+    {% block content %}
+    
+    
+        <h3>محاسبقه حقوق</h3>
+    
+    <ul>
+    <li>
+        <h4>
+            جهت محاسبه حقوق از <strong>فاکتور های حسابرو</strong> می توانید با انتخاب فایل فاکتورهای حسابرو و انتخاب ماه حقوق را محاسبه نمایید
+        </h4>
+    </li>
+    
+    
+    </ul>
+    <div>
+        <form >
+            {% csrf_token %} 
+                <!-- <input type="text" formmethod="post",name="sms_text",value = "متن دلخواه خود را وارد نمایید"> -->
+                <label >آدرس فایل یا فایل های فاکتورهای حسابرو را وارد نمایید:</label>
+                <br>
+               
+                <label for="file">انتخاب فایل فاکتورهای حسابرو:</label>
+                <input type="file" id="file_hesabro" name="file_hesabro" accept=".csv">
+                <br>
+                
+            {% if result == "stoped" %}  
+                <button type="submit" formmethod="post" name="act" value="run">محاسبه</button>
+            {% else %}
+                <button type="submit" formmethod="post"  name="act" value="stoped">توقف</button>
+            {% endif %}
+            
+   
+        </form>
+    </div>
+    {% endblock %}
+    
+</body>
+</html>

@@ -8,14 +8,20 @@
 <body dir="rtl">
     {% block content %}
     <h1>صفحه گزارشات از فایل های اکسل</h1>
-    <ul type="none">
+    <br>
+    <ul >
+        <li><a href="{% url 'analyse_excels_app:salary_hesabro' %}">محسابه حقوق از فایل فاکتورهای حسابرو</a></li>
+        <br>
         <li><a href="{% url 'analyse_excels_app:merge_factors_hamyar_with_hesabro' %}">ادغام فاکتورهای حسابرو، همیار</a></li>
+        <br>
         <li>
             <a href="{% url 'analyse_excels_app:merge_final_merged_factors_with_customers' %}">ادغام مشخصات مشتری با تجمیع شده فاکتورها</a>
         </li>
+        <br>
         <li>
             <a href="{% url 'analyse_excels_app:factors_count' %}">ایجاد خروجی تعداد فاکتورها</a>
         </li>
+        <br>
         
     </ul>
     

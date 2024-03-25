@@ -21,6 +21,7 @@ from ..hesabro.club import fetch_report_data as frd
 from ..hesabro.club import fetch_coin_report_data as fcrd
 from ..hesabro.club.sms_sender import send_group_sms
 from ..honeymoonatr import update_products as upsh
+from ...python_files.codes.salary_hesabro import salary
 def get_user_pass(this_domain):
     df_user_pass = pd.read_excel("..//selenium_files/data/user_pass/user_pass.xlsx")
     df_user_pass.to_excel("test.xlsx", index=False)
@@ -309,6 +310,11 @@ def task_selector(selected,args_= "",**kwargs):
         # selected = "5"
         main_url = f"{hesabro_domain}/site/index"
         print(selected)
+        if selected == tsk.task_name.salary:
+            # pass
+            df = pd.read_csv(args_,sep=",")
+            
+            # df.to_excel("this Is test.xlsx")
         if selected == tsk.task_name.run_honeymoonatr:
             # print("seledted is ok")
             driver, is_logged_in =run_honeymoonatr()

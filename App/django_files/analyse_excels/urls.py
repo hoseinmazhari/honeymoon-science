@@ -8,4 +8,5 @@ urlpatterns = [
     # path('recieve/',views.recieve,name="recieve"),
     path('merge_base_factors/',views.merge_base_factors,name="merge_factors_hamyar_with_hesabro"),
     path('merge_factors_customers/',views.merge_factors_customers,name="merge_final_merged_factors_with_customers"),
+    path('salary/',views.salary_hesabro,name="salary_hesabro"),
 ]

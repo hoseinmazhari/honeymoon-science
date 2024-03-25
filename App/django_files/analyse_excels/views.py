@@ -69,6 +69,32 @@ def merge_base_factors(request):
     
     return render(request,"analyse_excels/merge_factors_hamyar_hesabro.html",result)
     
-
+def salary_hesabro(request):
+    result = {"result":"stoped"}
+    print(result,1)
+    if request.method == 'POST':
+        print(result,"post")
+        data = request.POST
+        action = data.get("act")
+        file_hesabro = data.get("file_hesabro")
+        if action == "run":
+            result = {"result":"running"}
+            print(result)
+            # driver = webdriver.Firefox()
+            task_selector(atk.task_name.salary,file_hesabro)
+            print("run")
+        # driver.get('http://aradpayamak.net')
+            # driver.get("https://honeymoonatr.com")
+                # for t in driver.title:
+            # result = {"result":(f"عنوان سایت بارگزاری شده: {driver.title}") }
+        else:
+            print("stop")
+            # driver.close()
+        
+        # return redirect(("arad/"))
+    # message ={"messages":"test"}
+    
+    return render(request,"analyse_excels/salary_hesabro.html",result)
+    
 def merge_factors_customers(request):
     return HttpResponse("merge_factors_customers")
